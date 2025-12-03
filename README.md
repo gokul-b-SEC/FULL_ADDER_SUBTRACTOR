@@ -45,6 +45,7 @@ Write the detailed procedure here
 **Program:**
 <img width="549" height="369" alt="Screenshot 2025-12-03 102024" src="https://github.com/user-attachments/assets/e2f70b26-1ac6-4a53-b931-aa5ad2fb64bb" />
 <img width="634" height="296" alt="Screenshot 2025-12-03 103716" src="https://github.com/user-attachments/assets/20c8e4a4-4991-49ea-8717-2227a52e003e" />
+
 module exp4no1(a,b,cin,sum,carry);
 input a,b,cin;
 output sum,carry;
@@ -52,12 +53,14 @@ assign sum=( (a ^ b)^cin);
 assign carry= ( (a & b)| ( cin &(a ^ b )));
 endmodule
 
+
 module exp4no2(a,b,bin,difference,borrow);
 input a,b,bin;
 output difference,borrow;
 assign difference= ( (a ^ b)^bin);
 assign borrow= ( ( ~a & b)| ( bin & (~(a ^ b ))));
 endmodule
+
 
 
 
