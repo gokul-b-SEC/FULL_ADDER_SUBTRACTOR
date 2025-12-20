@@ -38,44 +38,83 @@ Borrow out = A'Bin + A'B + BBin
 
 **Truthtable**
 
+FULL ADDER
+
+<img width="382" height="350" alt="image" src="https://github.com/user-attachments/assets/7697b89a-e7a5-4bd9-abf5-f72f7c73f549" />
+
+FULL SUBRACTOR
+
+<img width="376" height="350" alt="image" src="https://github.com/user-attachments/assets/2bf08f94-dc71-476d-8728-983b1b9e6a84" />
+
+
 **Procedure**
 
-Write the detailed procedure here
+Type the program in Quartus software.
+
+Compile and run the program.
+
+Generate the RTL schematic and save the logic diagram.
+
+Create nodes for inputs and outputs to generate the timing diagram.
+
+For different input combinations generate the timing diagram.
+
 
 **Program:**
-<img width="549" height="369" alt="Screenshot 2025-12-03 102024" src="https://github.com/user-attachments/assets/e2f70b26-1ac6-4a53-b931-aa5ad2fb64bb" />
-<img width="634" height="296" alt="Screenshot 2025-12-03 103716" src="https://github.com/user-attachments/assets/20c8e4a4-4991-49ea-8717-2227a52e003e" />
-
-module exp4no1(a,b,cin,sum,carry);
-input a,b,cin;
-output sum,carry;
-assign sum=( (a ^ b)^cin);
-assign carry= ( (a & b)| ( cin &(a ^ b )));
-endmodule
-
-
-module exp4no2(a,b,bin,difference,borrow);
-input a,b,bin;
-output difference,borrow;
-assign difference= ( (a ^ b)^bin);
-assign borrow= ( ( ~a & b)| ( bin & (~(a ^ b ))));
-endmodule
-
-
-
-
-/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
+```
+/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming.
+Developed by:GOKUL B
+RegisterNumber: 25008644
 */
+```
 
+```
+FULL ADDER
+
+module exp4(df,bo,a,b,bin);
+output df;
+output bo;
+input a;
+input b;
+input bin;
+wire w1,w2,w3;
+assign w1=a^b;
+assign w2=(~a&b);
+assign w3=(~w1&bin);
+assign df=w1^bin;
+assign bo=w2|w3;
+endmodule
+```
+```
+FULL SUBTRACTOR
+
+module full_subtractor(diff, borrow, a, b, bin);
+  output diff;
+  output borrow;
+  input a;
+  input b;
+  input bin;
+  assign diff = a ^ b ^ bin;
+  assign borrow = (~a & b) | (~(a ^ b) & bin);
+endmodule
+```
 **RTL Schematic**
-<img width="559" height="223" alt="Screenshot 2025-12-03 102003" src="https://github.com/user-attachments/assets/712b6d0d-0b0c-4dba-ae15-b429441adb6f" />
-<img width="595" height="280" alt="Screenshot 2025-12-03 103519" src="https://github.com/user-attachments/assets/f5b26e88-7f9c-4a3a-b399-76be4f44d653" />
+FULL ADDER
 
+<img width="725" height="426" alt="image" src="https://github.com/user-attachments/assets/26b61193-b879-4b92-bacb-3a95786323c5" />
 
+FULL SUBRACTOR
+
+<img width="729" height="267" alt="image" src="https://github.com/user-attachments/assets/7d75e18d-e63b-4093-b8a0-f96e59842365" />
 
 **Output Timing Waveform**
-<img width="1910" height="333" alt="Screenshot 2025-12-03 102130" src="https://github.com/user-attachments/assets/a97b6864-bb1f-4bce-9152-910f193b0521" />
-<img width="1913" height="327" alt="Screenshot 2025-12-03 103640" src="https://github.com/user-attachments/assets/e2fffb59-2142-45ea-8e5a-7d3d291da5c0" />
+FULL ADDER
+
+<img width="773" height="287" alt="image" src="https://github.com/user-attachments/assets/29cc19c9-9041-409e-b982-c3e3af645d1c" />
+
+FULL SUBRACTOR
+
+<img width="773" height="268" alt="image" src="https://github.com/user-attachments/assets/f1f63343-9958-495a-a1c0-c155bb92e094" />
 
 
 
